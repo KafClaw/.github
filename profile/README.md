@@ -33,7 +33,7 @@ KafClaw is a Go-based agent runtime built on top of Apache Kafka. It is not a co
 
 **Shared memory:** Agents publish knowledge artifacts to a shared memory topic backed by S3 or LFS for large payloads. Each subscribing agent indexes received items locally for semantic retrieval, enabling agents with different architectures and languages to build on each other's work without direct coupling.
 
-**Built on:** Hard fork of [HKUDS/nanobot](https://github.com/HKUDS/nanobot) (MIT) and was completely rewritten in Go. Licensed Apache 2.0. 
+**Built on:** Inspired by [HKUDS/nanobot](https://github.com/HKUDS/nanobot) (MIT) and completely written in Go. Licensed Apache 2.0. 
 
 ---
 
