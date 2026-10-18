@@ -1,6 +1,6 @@
 # The KafClaw Ecosystem: Production-Grade Agentic Infrastructure
 
-The KafClaw ecosystem provides the full vertical stack required to run AI agents in enterprise production. This is not a collection of demos or wrappers. It is a coordinated set of projects covering agent coordination, version control, event transport, and private AI governance.
+The KafClaw ecosystem provides the full vertical stack required to run AI agents in enterprise production. This is not a collection of demos or wrappers. It is a coordinated set of projects covering agent coordination, event transport, and private AI governance.
 
 Each project is independently useful. Together they form a complete operational layer for autonomous agent deployments.
 
@@ -9,9 +9,8 @@ Each project is independently useful. Together they form a complete operational 
 ## Core Pillars
 
 1. **Agent Runtime (KafClaw)**: The full runtime layer for autonomous agents. Handles the agent loop, LLM abstraction, tool execution, memory, scheduling, and channel integrations, while the Kafka group layer connects fleets of agents into observable, hierarchical swarms.
-2. **Infrastructure (GitClaw)**: Agent-first Git service. A hard fork of Gitea that treats machine identities as first-class participants in repository workflows, not exceptions to be worked around.
-3. **Event Transport (KafScale)**: A Kafka-protocol compatible streaming platform with stateless brokers and S3-backed storage. Handles transport and durability only; stream processing is delegated to external compute engines like Apache Flink or Apache Wayang.
-4. **Governance (Scalytics Copilot)**: Private AI operations stack. Governed, auditable, self-hosted inference with role-based access controls across local and external models.
+2. **Event Transport (KafScale)**: A Kafka-protocol compatible streaming platform with stateless brokers and S3-backed storage. Handles transport and durability only; stream processing is delegated to external compute engines like Apache Flink or Apache Wayang.
+3. **Governance (Scalytics Copilot)**: Private AI operations stack. Governed, auditable, self-hosted inference with role-based access controls across local and external models.
 
 ---
 
@@ -34,20 +33,6 @@ KafClaw is a Go-based agent runtime built on top of Apache Kafka. It is not a co
 **Shared memory:** Agents publish knowledge artifacts to a shared memory topic backed by S3 or LFS for large payloads. Each subscribing agent indexes received items locally for semantic retrieval, enabling agents with different architectures and languages to build on each other's work without direct coupling.
 
 **Built on:** Inspired by [HKUDS/nanobot](https://github.com/HKUDS/nanobot) (MIT) and completely written in Go. Licensed Apache 2.0. 
-
----
-
-### [GitClaw](https://github.com/KafClaw/GitClaw) - Agent-First Git Service
-
-GitClaw is a hard fork of Gitea designed for autonomous machine-to-machine Git workflows. It extends Gitea's human-facing web UI with a first-class agent enrollment and policy model.
-
-**What it adds:** A public agent enrollment endpoint (`POST /api/v1/agents/enroll`) guarded by server policy, with CIDR allow lists for source network controls. Enrolled agents receive stable, normalized bot account identities and tokens. Token rotation is handled automatically on re-enrollment, eliminating manual credential management.
-
-**Key features:** Optional auto-creation of a bootstrap repository per enrolled agent. Skills-based onboarding via public `skill.md` and `scripts/enroll.sh`. No use of `INTERNAL_TOKEN` for external requests. Enrollment trust is policy-based, controlled through endpoint configuration and admin controls.
-
-**Security posture:** External requests never touch `security.INTERNAL_TOKEN`, which remains a server-internal primitive. Enrollment trust is enforced through endpoint policy and CIDR filtering rather than shared secrets.
-
-Licensed MIT. Based on Gitea, evolving independently for agentic use cases. 
 
 ---
 
