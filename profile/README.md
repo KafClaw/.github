@@ -11,7 +11,7 @@ Each project is independently useful. Together they form a complete operational 
 1. **Agent Runtime (KafClaw)**: The full runtime layer for autonomous agents. Handles the agent loop, LLM abstraction, tool execution, memory, scheduling, and channel integrations, while the Kafka group layer connects fleets of agents into observable, hierarchical swarms.
 2. **Infrastructure (GitClaw)**: Agent-first Git service. A hard fork of Gitea that treats machine identities as first-class participants in repository workflows, not exceptions to be worked around.
 3. **Event Transport (KafScale)**: A Kafka-protocol compatible streaming platform with stateless brokers and S3-backed storage. Handles transport and durability only; stream processing is delegated to external compute engines like Apache Flink or Apache Wayang.
-4. **Governance (Scalytics Connect)**: Private AI operations platform. Governed, auditable, self-hosted inference with role-based access controls across local and external models.
+4. **Governance (Scalytics Copilot)**: Private AI operations stack. Governed, auditable, self-hosted inference with role-based access controls across local and external models.
 
 ---
 
@@ -61,13 +61,13 @@ KafScale is a Kafka-protocol compatible streaming platform built on a single arc
 
 **Why this matters for agents:** Traditional Kafka broker clusters require persistent disk, leader election, rebalancing, and overprovisioning to survive failures. KafScale eliminates those structural costs. Broker instances are disposable. Storage scales independently. Replay is available as long as the S3 objects exist, with no broker state to protect.
 
-Repositories: [KafScale/platform](https://github.com/KafScale/platform) and [novatechflow/KafScale](https://github.com/novatechflow/KafScale)
+Repository: [KafScale/platform](https://github.com/KafScale/platform). Docs: [kafscale.io](https://kafscale.io).
 
 ---
 
-### [Scalytics Connect](https://github.com/KafClaw/Scalytics-Copilot) - Private AI Operations
+### [Scalytics Copilot](https://github.com/scalytics/ScalyticsCopilot) - Private AI Operations
 
-Scalytics Connect is an open source private AI operations stack for organizations that cannot run on unmanaged, black-box AI tooling. It handles local LLM deployment, model routing, user and group permissions, and API key governance in a single self-hosted platform.
+Scalytics Copilot is an open source private AI operations stack for organizations that cannot run on unmanaged, black-box AI tooling. It handles local LLM deployment, model routing, user and group permissions, and API key governance in a single self-hosted platform.
 
 **What it does:** Runs LLMs in the 7B to 70B range locally via vLLM with an OpenAI-compatible API surface. Routes requests across local and external providers based on policy, not hardcoded configuration. Provides a web dashboard, chat UI, and admin panel with usage monitoring and hardware visibility.
 
@@ -76,6 +76,19 @@ Scalytics Connect is an open source private AI operations stack for organization
 **Stack:** Node/Express backend, React frontend, Python services for inference and deep research. Supports MCP tools and agent workflow integration. Deployment scripts for Linux and GCP included.
 
 Licensed Apache 2.0. Backed by [Scalytics](https://www.scalytics.io).
+
+---
+
+## More from the same team
+
+- [KafGraph](https://github.com/scalytics/KafGraph): a shared knowledge graph for agents. It runs as a KafScale processor and reads the KafClaw group topics.
+- [kafSIEM](https://github.com/scalytics/kafSIEM): an entity graph over Kafka agent traffic and OSINT feeds. KafClaw agents are one of its inputs.
+- [kshark-core](https://github.com/scalytics/kshark-core): Kafka connectivity diagnostics, and an example of how agents can use our tools to debug Kafka clusters.
+- [infinimesh](https://infinimesh.org/): a self-hosted IoT device platform. Its Kafka addon streams device data to Kafka or KafScale.
+
+All projects are listed at [scalytics.io/open-source](https://www.scalytics.io/open-source). For governed AI agents on Kafka with commercial support, see [Lascaris](https://www.scalytics.io/lascaris).
+
+Built by the Scalytics team, including [Alexander Alten](https://www.novatechflow.com/p/about-us.html). Background: [why we built our multi-agent system on Kafka](https://www.novatechflow.com/2026/02/why-we-built-our-multi-agent-system-on.html).
 
 ---
 
