@@ -88,7 +88,7 @@ Licensed Apache 2.0. Backed by [Scalytics](https://www.scalytics.io).
 
 All projects are listed at [scalytics.io/open-source](https://www.scalytics.io/open-source). For governed AI agents on Kafka with commercial support, see [Lascaris](https://www.scalytics.io/lascaris).
 
-Built by the Scalytics team, including [Alexander Alten](https://www.novatechflow.com/p/about-us.html). Background: [why we built our multi-agent system on Kafka](https://www.novatechflow.com/2026/02/why-we-built-our-multi-agent-system-on.html).
+Built by the Scalytics team, including [Alexander Alten](https://www.novatechflow.com/p/about-us.html). Background: [how I built a secure, high-performance AI agent squad](https://www.novatechflow.com/2026/02/how-i-built-secure-high-performance-ai.html).
 
 ---
 
